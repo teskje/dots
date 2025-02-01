@@ -1,0 +1,17 @@
+[user]
+name = Jan Teske
+email = jteske@posteo.net
+
+[alias]
+update = !git fetch upstream && git rebase upstream/$(git rev-parse --abbrev-ref HEAD) && git push
+pushf = push --force-with-lease
+
+[push]
+autoSetupRemote = true
+recurseSubmodules = check
+
+[submodule]
+recurse = true
+
+[merge]
+conflictstyle = diff3
