@@ -11,7 +11,7 @@ return {
   {
     'stevearc/oil.nvim',
     dependencies = {
-      { 'echasnovski/mini.icons', opts = {} },
+      { 'nvim-tree/nvim-web-devicons', opts = {} },
     },
     config = function()
       require('oil').setup()
@@ -22,7 +22,7 @@ return {
   -- finder
   {
     'ibhagwan/fzf-lua',
-    dependencies = { 'echasnovski/mini.icons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('fzf-lua').setup()
       vim.keymap.set('n', '<leader>f', '<cmd>FzfLua files<cr>')
@@ -58,5 +58,23 @@ return {
       },
       signature = { enabled = true }
     },
+  },
+
+  -- diagnostics
+  {
+    "folke/trouble.nvim",
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('trouble').setup()
+      vim.keymap.set('n', '<leader>d', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>')
+      vim.keymap.set('n', '<leader>D', '<cmd>Trouble diagnostics toggle<cr>')
+    end,
+  },
+  {
+    'rachartier/tiny-inline-diagnostic.nvim',
+    config = function()
+        require('tiny-inline-diagnostic').setup()
+        vim.diagnostic.config({ virtual_text = false })
+    end,
   },
 }
