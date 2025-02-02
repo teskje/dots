@@ -1,97 +1,31 @@
 local wezterm = require 'wezterm'
-local act = wezterm.action
+local A = wezterm.action
+local M = {}
 
-local module = {}
- 
 key_bindings = {
-  {
-    key = 'h',
-    mods = 'CMD',
-    action = act.ActivatePaneDirection 'Left',
-  },
-  {
-    key = 'j',
-    mods = 'CMD',
-    action = act.ActivatePaneDirection 'Down',
-  },
-  {
-    key = 'k',
-    mods = 'CMD',
-    action = act.ActivatePaneDirection 'Up',
-  },
-  {
-    key = 'l',
-    mods = 'CMD',
-    action = act.ActivatePaneDirection 'Right',
-  },
+  -- navigation
+  { mods = 'CMD', key = 'h', action = A.ActivatePaneDirection 'Left' },
+  { mods = 'CMD', key = 'j', action = A.ActivatePaneDirection 'Down' },
+  { mods = 'CMD', key = 'k', action = A.ActivatePaneDirection 'Up' },
+  { mods = 'CMD', key = 'l', action = A.ActivatePaneDirection 'Right' },
+  { mods = 'CMD', key = 'LeftArrow', action = A.ActivatePaneDirection 'Left' },
+  { mods = 'CMD', key = 'DownArrow', action = A.ActivatePaneDirection 'Down' },
+  { mods = 'CMD', key = 'UpArrow', action = A.ActivatePaneDirection 'Up' },
+  { mods = 'CMD', key = 'RightArrow', action = A.ActivatePaneDirection 'Right' },
 
-  {
-    key = 'LeftArrow',
-    mods = 'CMD',
-    action = act.ActivatePaneDirection 'Left',
-  },
-  {
-    key = 'DownArrow',
-    mods = 'CMD',
-    action = act.ActivatePaneDirection 'Down',
-  },
-  {
-    key = 'UpArrow',
-    mods = 'CMD',
-    action = act.ActivatePaneDirection 'Up',
-  },
-  {
-    key = 'RightArrow',
-    mods = 'CMD',
-    action = act.ActivatePaneDirection 'Right',
-  },
-
-  {
-    key = 'h',
-    mods = 'CMD|SHIFT',
-    action = act.SplitPane { direction = 'Left' },
-  },
-  {
-    key = 'j',
-    mods = 'CMD|SHIFT',
-    action = act.SplitPane { direction = 'Down' },
-  },
-  {
-    key = 'k',
-    mods = 'CMD|SHIFT',
-    action = act.SplitPane { direction = 'Up' },
-  },
-  {
-    key = 'l',
-    mods = 'CMD|SHIFT',
-    action = act.SplitPane { direction = 'Right' },
-  },
-
-  {
-    key = 'LeftArrow',
-    mods = 'CMD|SHIFT',
-    action = act.SplitPane { direction = 'Left' },
-  },
-  {
-    key = 'DownArrow',
-    mods = 'CMD|SHIFT',
-    action = act.SplitPane { direction = 'Down' },
-  },
-  {
-    key = 'UpArrow',
-    mods = 'CMD|SHIFT',
-    action = act.SplitPane { direction = 'Up' },
-  },
-  {
-    key = 'RightArrow',
-    mods = 'CMD|SHIFT',
-    action = act.SplitPane { direction = 'Right' },
-  },
+  -- splitting
+  { mods = 'CMD|SHIFT', key = 'h', action = A.SplitPane { direction = 'Left' } },
+  { mods = 'CMD|SHIFT', key = 'j', action = A.SplitPane { direction = 'Down' } },
+  { mods = 'CMD|SHIFT', key = 'k', action = A.SplitPane { direction = 'Up' } },
+  { mods = 'CMD|SHIFT', key = 'l', action = A.SplitPane { direction = 'Right' } },
+  { mods = 'CMD|SHIFT', key = 'LeftArrow', action = A.SplitPane { direction = 'Left' } },
+  { mods = 'CMD|SHIFT', key = 'DownArrow', action = A.SplitPane { direction = 'Down' } },
+  { mods = 'CMD|SHIFT', key = 'UpArrow', action = A.SplitPane { direction = 'Up' } },
+  { mods = 'CMD|SHIFT', key = 'RightArrow', action = A.SplitPane { direction = 'Right' } },
 }
 
-function module.apply_to_config(config)
-  -- config.disable_default_key_bindings = true
+function M.apply_to_config(config)
   config.keys = key_bindings
 end
 
-return module
+return M

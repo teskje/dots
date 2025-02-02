@@ -20,13 +20,10 @@ vim.opt.sidescrolloff = 5
 vim.opt.clipboard = 'unnamed'
 vim.opt.spelllang = 'en'
 
--- window manipulation with <leader>-w
-vim.keymap.set('n', '<leader>w', '<c-w>')
-
--- plugins
-require("config.lazy")
-
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "lua",
   command = "setlocal shiftwidth=2 tabstop=2",
 })
+
+require('config.keys')
+require('config.lazy')
