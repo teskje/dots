@@ -77,4 +77,10 @@ return {
         vim.diagnostic.config({ virtual_text = false })
     end,
   },
+
+  -- git
+  {
+    'lewis6991/gitsigns.nvim',
+    opts = {},
+  },
 }
