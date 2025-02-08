@@ -28,8 +28,6 @@ return {
       vim.keymap.set('n', '<leader>f', '<cmd>FzfLua files<cr>')
       vim.keymap.set('n', '<leader>b', '<cmd>FzfLua buffers<cr>')
       vim.keymap.set('n', '<leader>g', '<cmd>FzfLua live_grep_glob<cr>')
-      vim.keymap.set('n', '<leader>d', '<cmd>FzfLua diagnostics_document<cr>')
-      vim.keymap.set('n', '<leader>D', '<cmd>FzfLua diagnostics_workspace<cr>')
       vim.keymap.set('n', '<leader>a', '<cmd>FzfLua lsp_code_actions<cr>')
       vim.keymap.set('n', 'gr', '<cmd>FzfLua lsp_references<cr>')
       vim.keymap.set('n', 'gi', '<cmd>FzfLua lsp_implementations<cr>')
@@ -66,8 +64,8 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('trouble').setup()
-      vim.keymap.set('n', '<leader>d', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>')
-      vim.keymap.set('n', '<leader>D', '<cmd>Trouble diagnostics toggle<cr>')
+      vim.keymap.set('n', '<leader>d', '<cmd>Trouble diagnostics toggle<cr>')
+      vim.keymap.set('n', '<leader>D', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>')
     end,
   },
   {
