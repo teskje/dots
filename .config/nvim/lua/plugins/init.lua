@@ -10,13 +10,14 @@ return {
   -- file explorer
   {
     'stevearc/oil.nvim',
+    lazy = false,
     dependencies = {
       { 'nvim-tree/nvim-web-devicons', opts = {} },
     },
-    config = function()
-      require('oil').setup()
-      vim.keymap.set('n', '-', '<cmd>Oil<cr>')
-    end,
+    opts = {},
+    keys = {
+      { '-', '<cmd>Oil<cr>' },
+    }
   },
 
   -- autocomplete
@@ -50,11 +51,11 @@ return {
   {
     "folke/trouble.nvim",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      require('trouble').setup()
-      vim.keymap.set('n', '<leader>d', '<cmd>Trouble diagnostics toggle<cr>')
-      vim.keymap.set('n', '<leader>D', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>')
-    end,
+    opts = {},
+    keys = {
+      { '<leader>d', '<cmd>Trouble diagnostics toggle<cr>' },
+      { '<leader>D', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>' },
+    },
   },
   {
     'rachartier/tiny-inline-diagnostic.nvim',
