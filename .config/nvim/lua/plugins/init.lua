@@ -41,6 +41,10 @@ return {
     dependencies = 'rafamadriz/friendly-snippets',
     version = '*',
     opts = {
+      sources = {
+        -- disable cmdline completion
+        cmdline = {},
+      },
       keymap = { preset = 'enter' },
       completion = {
         list = {
