@@ -27,8 +27,9 @@ return {
     version = '*',
     opts = {
       sources = {
-        -- disable cmdline completion
-        cmdline = {},
+        providers = {
+          cmdline = { enabled = false },
+        },
       },
       keymap = { preset = 'enter' },
       completion = {

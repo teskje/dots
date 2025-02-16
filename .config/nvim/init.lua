@@ -20,9 +20,9 @@ vim.opt.sidescrolloff = 5
 vim.opt.clipboard = 'unnamed'
 vim.opt.spelllang = 'en'
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "lua",
-  command = "setlocal shiftwidth=2 tabstop=2",
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'lua',
+  command = 'setlocal shiftwidth=2 tabstop=2',
 })
 
 require('config.keys')

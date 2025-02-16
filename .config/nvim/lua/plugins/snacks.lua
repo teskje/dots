@@ -7,10 +7,17 @@ end, {
   range = true,
 })
 
-vim.api.nvim_create_autocmd("User", {
-  pattern = "OilActionsPost",
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'oil',
+  callback = function()
+    vim.b.snacks_main = true
+  end,
+})
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'OilActionsPost',
   callback = function(event)
-      if event.data.actions.type == "move" then
+      if event.data.actions.type == 'move' then
           Snacks.rename.on_rename_file(event.data.actions.src_url, event.data.actions.dest_url)
       end
   end,
@@ -18,7 +25,7 @@ vim.api.nvim_create_autocmd("User", {
 
 return {
   {
-    "folke/snacks.nvim",
+    'folke/snacks.nvim',
     lazy = false,
     opts = {
       gitbrowse = {},
@@ -43,8 +50,8 @@ return {
       { 'gr', function() Snacks.picker.lsp_references() end },
       { 'gi', function() Snacks.picker.lsp_implementations() end },
       { 'gy', function() Snacks.picker.lsp_type_definitions() end },
-      { "<leader>s", function() Snacks.picker.lsp_symbols() end },
-      { "<leader>S", function() Snacks.picker.lsp_workspace_symbols() end },
+      { '<leader>s', function() Snacks.picker.lsp_symbols() end },
+      { '<leader>S', function() Snacks.picker.lsp_workspace_symbols() end },
     },
   },
 }
