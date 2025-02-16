@@ -52,7 +52,11 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      require('lspconfig').rust_analyzer.setup({
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local lspconfig = require('lspconfig')
+
+      lspconfig.rust_analyzer.setup({
+        capabilities = capabilities,
         settings = {
           ['rust-analyzer'] = {
             cargo = { targetDir = true },
