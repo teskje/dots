@@ -24,13 +24,8 @@ return {
   {
     'saghen/blink.cmp',
     dependencies = 'rafamadriz/friendly-snippets',
-    version = '*',
+    version = '1.*',
     opts = {
-      sources = {
-        providers = {
-          cmdline = { enabled = false },
-        },
-      },
       keymap = { preset = 'enter' },
       completion = {
         list = {
